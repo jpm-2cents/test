@@ -1,0 +1,61 @@
+<!doctype html>
+<!-- personal annotation: i don't like css -->
+<html>
+<head>
+<style>
+    * { padding: 0px; margin: 0px; } /* meyers's reset, thanks :) */
+    :root {
+        --main-head-height     : 30px;
+        --main-foot-height     : 20px;
+        --main-body-left-width : 100px;
+        --main-body-right-width: auto;
+    }
+    .main-page { height: 100vh; display: flex; flex-direction: column; }
+    .main-head { height: var(--main-head-height); }
+    .main-foot { height: var(--main-foot-height); }
+    .main-body {
+        flex: 1;
+        display: flex;
+        overflow: auto;
+        white-space: nowrap;
+    }
+    .main-body-left { width: var(--main-body-left-width); }
+    .main-body-right { width: var(--main-body-right-width); }
+    .main-body-middle { flex: 1; overflow: auto; } /* content */
+</style>
+</head>
+<!-- That's all folks, the html demo follows here ... -->
+<body>
+    <style>
+        .gray { background: gray ; }
+        .lightgray { background:lightgray; }
+        .orange { background: orange; }
+        .darkorange { background:#ff8c00; }
+    </style>
+    <div class="main-page">
+        <div class="main-head darkorange">HEADER-1</div>
+        <div class="main-head orange">HEADER-2</div>
+        <div class="main-body">
+            <div class="main-body-left gray">LT-NAV-1</div>
+            <div class="main-body-left lightgray">LT-NAV-2</div>
+            <div class="main-body-middle">
+                <tt>==> Resize the browser window to see the scrollbars for this area in action</tt>
+                <br>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                <br>Lorem<br>ipsum<br>dolor<br>...
+                <br>Lorem<br>ipsum<br>dolor<br>...
+                <br>Lorem<br>ipsum<br>dolor<br>...
+                <br>Lorem<br>ipsum<br>dolor<br>...
+                <br>Lorem<br>ipsum<br>dolor<br>...
+                <br>Lorem<br>ipsum<br>dolor<br>...
+                <br>Lorem<br>ipsum<br>dolor<br>...
+                <br>Lorem<br>ipsum<br>dolor<br>...
+            </div>
+            <div class="main-body-right lightgray">RT-NAV-2&nbsp;&nbsp;</div>
+            <div class="main-body-right gray">RT-NAV-1</div>
+        </div>
+        <div class="main-foot orange">FOOTER-3</div>
+        <div class="main-foot orange">FOOTER-2</div>
+        <div class="main-foot darkorange">FOOTER-1</div>
+    </div>
+</body>
+</html>
