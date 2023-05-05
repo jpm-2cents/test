@@ -1,0 +1,124 @@
+<!doctype html>
+<html>
+<head>
+<style>
+    * { /* avoid unnecessary scrollbars (kind of meyer's reset.css -;) */
+        padding: 0px;
+        margin: 0px;
+    }
+</style>
+<style>
+    /*
+
+    The 'main-page' layout: 'header' and 'footer' may appear more than once;
+    there are further classes to divide the 'main-body' area horizontally;
+    note: 'head' and 'foot' may ie. use height 'auto' or a fixed height
+    and do not forget to set body margin and padding to 0px (see class '*');
+
+    +-----------------------------------------------------------------------+
+    |                       .main-head                                      |
+    +-----------------------------------------------------------------------+
+    |                                                                       |
+    |                                                                       |
+    |                       .main-body                                      |
+    |            (may be devided horizontally, see below)                   |
+    |                                                                       |
+    |                                                                       |
+    +-----------------------------------------------------------------------+
+    |                       .main-foot                                      |
+    +-----------------------------------------------------------------------+
+
+
+    The 'main-body' layout: 'left' and 'right' may appear more than once;
+    note: 'left' and 'right' ie. may use width 'auto' or a fixed width;
+
+    +-----------------------------------------------------------------------+
+    |                       .main-head                                      |
+    +--------+-----------------------------------------------------+--------+
+    |        |                                                     |        |
+    |        |                                                     |        |
+    | .main  |              .main-body-middle                      | .main  |
+    | -body  |                                                     | -body  |
+    | -left  |         (auto-scroll and -resize area)              | -right |
+    |        |                                                     |        |
+    |        |                                                     |        |
+    |        |                                                     |        |
+    +--------+--------------------------------------------------------------+
+    |                       .main-foot                                      |
+    +-----------------------------------------------------------------------+
+
+    */
+    :root {
+        /* set to 'auto' if the content should determine height or width */
+        --main-head-height     : 30px;
+        --main-foot-height     : 20px;
+        --main-body-left-width : 100px;
+        --main-body-right-width: auto;
+    }
+    /* Main vertical layout for headers, footer and the main 'center' content */
+    .main-page {
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+    }
+    .main-head { 
+        height: var(--main-head-height);
+    }
+    .main-foot {
+        height: var(--main-foot-height);
+    }
+    .main-body {
+        flex: 1;
+        display: flex;
+        overflow: auto; /* prevents unvisible foot on browser window resize */
+        white-space: nowrap; /* optional */
+    }
+    /* Optional left, right or middle sub-divisions for '.main-body' */
+    .main-body-left {
+        width: var(--main-body-left-width);
+    }
+    .main-body-right {
+        width: var(--main-body-right-width);
+    }
+    .main-body-middle { /* todo: rename middle to content or center? */
+        flex: 1;
+        overflow: auto;
+    }
+</style>
+</head>
+<body>
+    <style>
+        /* colorize areas to make them more distinguishable (what a word ;-) */
+        .gray { background: gray ; }
+        .lightgray { background:lightgray; }
+        .orange { background: orange; }
+        .darkorange { background:#ff8c00; }
+    </style>
+    <!-- [O]: optional, remove without consequences to basic functionality -->
+    <div class="main-page">
+        <div class="main-head darkorange">HEADER-1</div> <!-- [O] -->
+        <div class="main-head orange">HEADER-2</div> <!-- [O] -->
+        <div class="main-body">
+            <div class="main-body-left gray">LT-NAV-1</div> <!-- [O] -->
+            <div class="main-body-left lightgray">LT-NAV-2</div> <!-- [O] -->
+            <div class="main-body-middle">
+                <tt>==> Resize the browser window to see the scrollbars for this area in action</tt>
+                <br>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                <br>Lorem<br>ipsum<br>dolor<br>...
+                <br>Lorem<br>ipsum<br>dolor<br>...
+                <br>Lorem<br>ipsum<br>dolor<br>...
+                <br>Lorem<br>ipsum<br>dolor<br>...
+                <br>Lorem<br>ipsum<br>dolor<br>...
+                <br>Lorem<br>ipsum<br>dolor<br>...
+                <br>Lorem<br>ipsum<br>dolor<br>...
+                <br>Lorem<br>ipsum<br>dolor<br>...
+            </div>
+            <div class="main-body-right lightgray">RT-NAV-2&nbsp;&nbsp;</div> <!-- [O] -->
+            <div class="main-body-right gray">RT-NAV-1</div> <!-- [O] -->
+        </div>
+        <div class="main-foot orange">FOOTER-3</div> <!-- [O] -->
+        <div class="main-foot orange">FOOTER-2</div> <!-- [O] -->
+        <div class="main-foot darkorange">FOOTER-1</div> <!-- [O] -->
+    </div>
+</body>
+</html>
